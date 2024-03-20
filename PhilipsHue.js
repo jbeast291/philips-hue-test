@@ -365,10 +365,10 @@ export function DiscoveryService() {
 	this.LoadCachedDevices = function(){
 		service.log("Loading Cached Devices...");
 
-		for(const [key, value] of this.cache.Entries()){
-			service.log(`Found Cached Device: [${key}: ${JSON.stringify(value)}]`);
-			this.CreateController(value);
-		}
+		//for(const [key, value] of this.cache.Entries()){
+		//	service.log(`Found Cached Device: [${key}: ${JSON.stringify(value)}]`);
+		//	this.CreateController(value);
+		//}
 	};
 
 	this.forgetBridge = function(bridgeId){
@@ -391,7 +391,7 @@ class HueBridge {
 	constructor(value){
 		this.updateWithValue(value);
 
-		this.ip = "192.168.4.84";
+		this.ip = "";
 		this.key = service.getSetting(this.id, "key") ?? "";
 		this.username = service.getSetting(this.id, "username") ?? "";
 		this.areas = {};
