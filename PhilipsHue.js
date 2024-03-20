@@ -308,7 +308,7 @@ export function DiscoveryService() {
 	];
 
 	this.firstrun = true;
-	this.cache = new IPCache();
+	this.cache = new IPCache().Add("192.168.4.84");
 
 	this.Initialize = function(){
 		service.log("Initializing Plugin!");
@@ -364,11 +364,12 @@ export function DiscoveryService() {
 
 	this.LoadCachedDevices = function(){
 		service.log("Loading Cached Devices...");
+		service.log("is work");
 
-		//for(const [key, value] of this.cache.Entries()){
-		//	service.log(`Found Cached Device: [${key}: ${JSON.stringify(value)}]`);
-		//	this.CreateController(value);
-		//}
+		for(const [key, value] of this.cache.Entries()){
+			service.log(`Found Cached Device: [${key}: ${JSON.stringify(value)}]`);
+			this.CreateController(value);
+		}
 	};
 
 	this.forgetBridge = function(bridgeId){
