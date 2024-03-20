@@ -365,7 +365,7 @@ export function DiscoveryService() {
 	this.LoadCachedDevices = function(){
 		service.log("Loading Cached Devices...");
 
-		IPCache.Add("ECB5FAFFFEA2E93D", {
+		this.cache.Add("ECB5FAFFFEA2E93D", {
 			hostname: "192.168.4.84",
 			name: "Hue Bridge",
 			port: "443",
